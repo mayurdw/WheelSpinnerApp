@@ -24,7 +24,7 @@ class AddItemsFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.add_items_fragment, container, false)
         viewModel = AddItemsViewModel()
 
-        binding.button.setOnClickListener {
+        binding.doneButton.setOnClickListener {
             view: View ->
                 view.findNavController().navigate(R.id.action_addItemsFragment_to_wheelSpinnerFragment)
         }

@@ -8,25 +8,45 @@
         android:layout_height="match_parent"
         tools:context=".fragments.WheelSpinnerFragment">
 
-        <me.sujanpoudel.wheelview.WheelView
-            android:id="@+id/wheel_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"
-            app:wheelDividerStrokeWidth="16dp"
-            app:wheelArcBackgroundColor="#F7F8FB"
-            app:wheelSelectedArcBackgroundColor="#FE6447"
-            app:wheelCenterIcon="@drawable/ic_launcher_foreground"
-            app:wheelCenterIconPadding="16dp"
-            app:wheelCenterIconTint="@color/white"
-            app:wheelAnchorAngle="270"
-            app:wheelStartAngle="315"
-            app:wheelTextSize="16sp"
-            app:wheelSelectedTextColor="#FFF"
-            app:wheelTextColor="#000000"
-            app:wheelAnimationDuration="800"
-            app:wheelMode="ANIMATE_TO_ANCHOR"
-            />
+            android:padding="8dp">
+
+            <me.sujanpoudel.wheelview.WheelView
+                android:id="@+id/wheel_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/button"
+                app:wheelAnchorAngle="270"
+                app:wheelAnimationDuration="800"
+                app:wheelArcBackgroundColor="#F7F8FB"
+                app:wheelCenterIconPadding="16dp"
+                app:wheelCenterIconTint="@color/white"
+                app:wheelDividerStrokeWidth="16dp"
+                app:wheelMode="ANIMATE_TO_ANCHOR"
+                app:wheelSelectedArcBackgroundColor="@color/design_default_color_primary"
+                app:wheelSelectedTextColor="#FFF"
+                app:wheelStartAngle="315"
+                app:wheelTextColor="@color/design_default_color_primary"
+                app:wheelTextSize="16sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/spin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
 </layout>

@@ -15,6 +15,7 @@ class WheelSpinnerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val listSize : Int
 
         val binding: WheelSpinnerFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.wheel_spinner_fragment, container, false
@@ -22,8 +23,19 @@ class WheelSpinnerFragment : Fragment() {
 
         val scoreFragmentArgs by navArgs<WheelSpinnerFragmentArgs>()
 
-        binding.wheelView.titles = scoreFragmentArgs.args.toList()
 
+        binding.wheelView.titles = scoreFragmentArgs.args.toList()
+        listSize = scoreFragmentArgs.args.toList().size
+
+        binding.spinButton.setOnClickListener {
+            var newIndex = ( 0 until listSize).shuffled().last()
+            while( newIndex == binding.wheelView.focusedIndex ){
+                newIndex = ( 0 until listSize ).shuffled().last()
+            }
+            binding.wheelView.focusedIndex = newIndex
+        }
         return binding.root
     }
+
+
 }

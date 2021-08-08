@@ -24,7 +24,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/button"
+                app:layout_constraintBottom_toTopOf="@id/spinButton"
                 app:wheelAnchorAngle="270"
                 app:wheelAnimationDuration="800"
                 app:wheelArcBackgroundColor="#F7F8FB"
@@ -39,10 +39,10 @@
                 app:wheelTextSize="16sp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/spinButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/spin"
+                android:text="@string/randomize"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

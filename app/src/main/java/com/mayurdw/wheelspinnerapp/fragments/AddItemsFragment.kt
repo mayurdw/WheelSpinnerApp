@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.mayurdw.wheelspinnerapp.R
@@ -21,11 +22,18 @@ class AddItemsFragment : Fragment() {
 
 
         binding.doneButton.setOnClickListener { view: View ->
-            val action = AddItemsFragmentDirections.actionAddItemsFragmentToWheelSpinnerFragment(
-                this.getInputTexts()
-            )
+            val stringArray : Array<String> = this.getInputTexts()
 
-            view.findNavController().navigate(action)
+            if( stringArray.size < 2 ){
+                Toast.makeText(context, "Invalid Data", Toast.LENGTH_LONG).show()
+            } else {
+                val action =
+                    AddItemsFragmentDirections.actionAddItemsFragmentToWheelSpinnerFragment(
+                        this.getInputTexts()
+                    )
+                view.findNavController().navigate(action)
+            }
+
         }
 
         return binding.root

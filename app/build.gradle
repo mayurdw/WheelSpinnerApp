@@ -49,7 +49,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
-    implementation 'com.github.psuzn:WheelView:v1.0.2'
+    // Wheel implementation
+    implementation 'com.github.thanhniencung:LuckyWheel:a6110f5128'
     // Testing Navigation
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 

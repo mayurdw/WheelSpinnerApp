@@ -36,64 +36,72 @@
                 android:id="@+id/item0"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item1"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item2"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item4"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item5"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item6"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item7"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/enter_2_8_chars"
+                android:hint="@string/four_chars_max"
                 android:inputType="text"
+                android:maxLength="4"
                 android:text="" />
         </LinearLayout>
 

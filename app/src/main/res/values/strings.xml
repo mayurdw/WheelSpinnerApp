@@ -3,6 +3,6 @@
     <string name="about">About</string>
     <string name="done">DONE</string>
     <string name="enter_between_2_8_items">Enter between 2–8 items</string>
-    <string name="six_chars_max">6 Chars Max</string>
+    <string name="four_chars_max">4 Chars Max</string>
     <string name="spin">SPIN</string>
 </resources>

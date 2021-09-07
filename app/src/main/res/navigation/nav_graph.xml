@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/addItemsFragment">
+
+    <fragment
+        android:id="@+id/addItemsFragment"
+        android:name="com.mayurdw.wheelspinnerapp.fragment.AddItemsFragment"
+        android:label="add_items_fragment"
+        tools:layout="@layout/add_items_fragment" >
+        <action
+            android:id="@+id/action_addItemsFragment_to_wheelSpinnerFragment"
+            app:destination="@id/wheelSpinnerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wheelSpinnerFragment"
+        android:name="com.mayurdw.wheelspinnerapp.fragment.WheelSpinnerFragment"
+        android:label="wheel_spinner_fragment"
+        tools:layout="@layout/wheel_spinner_fragment" />
+</navigation>

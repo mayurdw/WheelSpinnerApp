@@ -1,7 +1,19 @@
 package com.mayurdw.wheelspinnerapp.viewmodels
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class AddItemsViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+    private val navigateButtonClicked = MutableLiveData<Boolean>()
+    val _navigateButtonClicked : LiveData<Boolean>
+        get() = navigateButtonClicked
+
+    fun navigateToSpin() {
+        navigateButtonClicked.value = true
+    }
+
+    fun doneNavigation() {
+        navigateButtonClicked.value = false
+    }
 }

@@ -16,16 +16,33 @@
         tools:context=".fragment.AddItemsFragment">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/sendButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/send_button"
+            android:contentDescription="@string/send_items_for_spin"
+            android:minHeight="48dp"
+            android:onClick="@{ () -> addItemsViewModel.navigateToSpin() }"
             android:src="@drawable/ic_baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:onClick="@{ () -> addItemsViewModel.navigateToSpin() }"/>
+            android:clickable="false"/>
+
+        <EditText
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_spin_item"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/sendButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@={addItemsViewModel.editText}"
+            android:autofillHints="Spin Item" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

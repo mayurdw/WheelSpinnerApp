@@ -9,6 +9,8 @@ class AddItemsViewModel : ViewModel() {
     val _navigateButtonClicked : LiveData<Boolean>
         get() = navigateButtonClicked
 
+    val editText = MutableLiveData<String>()
+
     fun navigateToSpin() {
         navigateButtonClicked.value = true
     }

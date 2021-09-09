@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">WheelSpinnerApp</string>
-    <string name="send_button">Send Button</string>
+    <string name="send_items_for_spin">Send Items For Spin</string>
     <string name="label_add_items">Add Items</string>
     <string name="label_spin_the_wheel">Spin the Wheel!</string>
+    <string name="enter_spin_item">Enter Spin Item</string>
 </resources>

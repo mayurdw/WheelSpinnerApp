@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
 import com.mayurdw.wheelspinnerapp.R
 import com.mayurdw.wheelspinnerapp.databinding.AddItemsFragmentBinding
@@ -28,7 +26,7 @@ class AddItemsFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.addItemsViewModel = viewModel
 
-        viewModel._navigateButtonClicked.observe( viewLifecycleOwner, {
+        viewModel.liveNavigateButtonClicked.observe( viewLifecycleOwner, {
             if( it ){
                 val action = AddItemsFragmentDirections.actionAddItemsFragmentToWheelSpinnerFragment()
                 view?.findNavController()?.navigate( action )

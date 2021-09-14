@@ -5,6 +5,7 @@ The App only has two screens; one that allows a user to add values to “The Whe
 where the Wheel can be spun for a random result.
 
 Wireframe: 
+
 ![Wireframe containing two screen images](images/wireframe.jpg)
 
 **Screen A**

@@ -15,7 +15,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.AddItemsFragment">
+        tools:context=".fragment.AddItemsFragment"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp">
 
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -31,9 +33,9 @@
                 android:layout_gravity="bottom|end"
                 android:layout_margin="16dp"
                 android:contentDescription="@string/send_items_for_spin"
+                android:enabled="@{addItemsViewModel.liveEnableSendButton}"
                 android:onClick="@{ () -> addItemsViewModel.navigateToSpin() }"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_24"
-                android:enabled="@{addItemsViewModel.liveEnableSendButton}"/>
+                app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -41,8 +43,6 @@
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
             android:autofillHints="Spin Item"
             android:hint="@string/enter_spin_item"
             android:inputType="text"
@@ -55,6 +55,14 @@
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="top"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

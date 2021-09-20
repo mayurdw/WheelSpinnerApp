@@ -6,7 +6,6 @@
     android:fitsSystemWindows="true">
 
     <data>
-
         <variable
             name="addItemsViewModel"
             type="com.mayurdw.wheelspinnerapp.viewmodels.AddItemsViewModel" />
@@ -19,6 +18,16 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp">
 
+
+        <Button
+            android:id="@+id/add_item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_add_items"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -39,22 +48,6 @@
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <EditText
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:autofillHints="Spin Item"
-            android:hint="@string/enter_spin_item"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="@={addItemsViewModel.editText}"
-            android:onTextChanged="@{(text, start, before, count) -> addItemsViewModel.textEntered(text, start, before, count)}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:gravity="top"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
@@ -62,7 +55,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

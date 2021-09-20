@@ -17,7 +17,7 @@ import com.mayurdw.wheelspinnerapp.viewmodels.AddItemsViewModel
 
 class AddItemsFragment : Fragment() {
 
-    private val addItemsList : List<Item> = ArrayList()
+    private var addItemsList : ArrayList<Item> = arrayListOf( Item() )
     private lateinit var listAdapter: AddItemAdapter
 
     override fun onCreateView(
@@ -34,6 +34,11 @@ class AddItemsFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@AddItemsFragment.context)
             adapter = listAdapter
+        }
+
+        binding.addItemButton.setOnClickListener {
+            addItemsList.add( Item() )
+            listAdapter.notifyDataSetChanged()
         }
 
         viewModel.liveNavigateButtonClicked.observe( viewLifecycleOwner, {

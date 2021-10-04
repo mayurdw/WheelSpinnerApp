@@ -37,8 +37,9 @@ class AddItemsFragment : Fragment() {
         }
 
         binding.addItemButton.setOnClickListener {
+            val size = addItemsList.size
             addItemsList.add( Item() )
-            listAdapter.notifyDataSetChanged()
+            listAdapter.notifyItemChanged( size )
         }
 
         viewModel.liveNavigateButtonClicked.observe( viewLifecycleOwner, {

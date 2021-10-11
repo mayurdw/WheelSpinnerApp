@@ -4,4 +4,5 @@
     <string name="label_add_items">Add Items</string>
     <string name="label_spin_the_wheel">Spin the Wheel!</string>
     <string name="enter_spin_item">Enter Spin Item</string>
+    <string name="spin">Spin</string>
 </resources>

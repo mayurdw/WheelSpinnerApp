@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     def var nav_version = "2.3.5"
     def var fragment_version = "1.3.6"
 

@@ -18,5 +18,11 @@
         android:id="@+id/wheelSpinnerFragment"
         android:name="com.mayurdw.wheelspinnerapp.fragment.WheelSpinnerFragment"
         android:label="@string/label_spin_the_wheel"
-        tools:layout="@layout/wheel_spinner_fragment" />
+        tools:layout="@layout/wheel_spinner_fragment">
+        <argument
+            app:argType="string[]"
+            app:nullable="false"
+            android:name="itemLists"
+            />
+    </fragment>
 </navigation>

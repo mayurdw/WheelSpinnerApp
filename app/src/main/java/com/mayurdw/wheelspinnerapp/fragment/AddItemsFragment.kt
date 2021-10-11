@@ -44,7 +44,10 @@ class AddItemsFragment : Fragment() {
 
         viewModel.liveNavigateButtonClicked.observe( viewLifecycleOwner, {
             if( it ){
-                val action = AddItemsFragmentDirections.actionAddItemsFragmentToWheelSpinnerFragment()
+                val stringArray = arrayOf( "Test" )
+
+                val action = AddItemsFragmentDirections.
+                actionAddItemsFragmentToWheelSpinnerFragment( stringArray )
                 view?.findNavController()?.navigate( action )
                 viewModel.doneNavigation()
             }

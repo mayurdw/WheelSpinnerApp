@@ -29,4 +29,9 @@ class AddItemAdapter ( private val itemsList: List<Item>) :
         holder.bind(itemsList[position])
     }
     override fun getItemCount(): Int = itemsList.size
+
+    fun updateItems(items: List<Item>?) {
+//        itemViewModels = items ?: emptyList()
+//        notifyDataSetChanged()
+    }
 }

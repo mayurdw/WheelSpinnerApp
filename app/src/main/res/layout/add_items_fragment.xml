@@ -34,9 +34,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_item_button">
-        </androidx.recyclerview.widget.RecyclerView>
-
+            app:layout_constraintTop_toBottomOf="@+id/add_item_button"
+            app:itemViewModels="@{ addItemsViewModel.liveItemsList }"
+            />
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

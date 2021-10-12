@@ -10,15 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mayurdw.wheelspinnerapp.R
-import com.mayurdw.wheelspinnerapp.adapter.AddItemAdapter
-import com.mayurdw.wheelspinnerapp.adapter.Item
 import com.mayurdw.wheelspinnerapp.databinding.AddItemsFragmentBinding
 import com.mayurdw.wheelspinnerapp.viewmodels.AddItemsViewModel
 
 class AddItemsFragment : Fragment() {
-
-    private var addItemsList : ArrayList<Item> = arrayListOf( Item() )
-    private lateinit var listAdapter: AddItemAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,24 +25,18 @@ class AddItemsFragment : Fragment() {
 
         binding.lifecycleOwner = this
         binding.addItemsViewModel = viewModel
-        listAdapter = AddItemAdapter(addItemsList)
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@AddItemsFragment.context)
-            adapter = listAdapter
-        }
-
-        binding.addItemButton.setOnClickListener {
-            val size = addItemsList.size
-            addItemsList.add( Item() )
-            listAdapter.notifyItemChanged( size )
+            adapter = viewModel.listAdapter
         }
 
         viewModel.liveNavigateButtonClicked.observe( viewLifecycleOwner, {
             if( it ){
-                val stringArray = arrayOf( "Test" )
-
                 val action = AddItemsFragmentDirections.
-                actionAddItemsFragmentToWheelSpinnerFragment( stringArray )
+                actionAddItemsFragmentToWheelSpinnerFragment(
+                    viewModel.getItemList()
+                )
+
                 view?.findNavController()?.navigate( action )
                 viewModel.doneNavigation()
             }

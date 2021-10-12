@@ -8,8 +8,9 @@ import com.mayurdw.wheelspinnerapp.databinding.ListAddItemBinding
 /**
  * Taken from https://medium.com/swlh/how-data-binding-helps-you-when-working-with-edittext-inside-recyclerview-543a1eb5f2cc
  * */
-class AddItemAdapter ( private val itemsList: List<Item>) :
+class AddItemAdapter :
     RecyclerView.Adapter<AddItemAdapter.AddItemViewHolder>() {
+    private var itemsList : List<Item> = emptyList()
 
     inner class AddItemViewHolder(private val binding : ListAddItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Item){
@@ -31,7 +32,7 @@ class AddItemAdapter ( private val itemsList: List<Item>) :
     override fun getItemCount(): Int = itemsList.size
 
     fun updateItems(items: List<Item>?) {
-//        itemViewModels = items ?: emptyList()
-//        notifyDataSetChanged()
+        itemsList = items ?: emptyList()
+        notifyItemChanged( if (itemsList.isNotEmpty()) itemsList.size - 1 else 0  )
     }
 }

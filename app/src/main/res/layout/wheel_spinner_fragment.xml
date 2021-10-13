@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mayurdw.wheelspinnerapp.viewmodels.WheelSpinnerViewModel" />
+    </data>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +37,8 @@
                 app:lkwSecondaryTextSize="25sp"
                 app:lkwTopTextColor="#263238"
                 app:lkwTopTextPadding="10dp"
-                app:lkwTopTextSize="12sp" />
+                app:lkwTopTextSize="12sp"
+                app:listViewModel="@{ viewModel.liveLuckyItemList }"/>
 
             <Button
                 android:id="@+id/spinButton"
@@ -40,7 +47,9 @@
                 android:text="@string/spin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="@{ () -> viewModel.spinWheel() }"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>

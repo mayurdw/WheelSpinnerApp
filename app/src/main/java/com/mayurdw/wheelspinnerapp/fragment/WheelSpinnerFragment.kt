@@ -25,7 +25,7 @@ class WheelSpinnerFragment : Fragment() {
 
         val scoreFragmentArgs by navArgs<WheelSpinnerFragmentArgs>()
         val wheelSpinnerViewModel = ViewModelProvider( this,
-            WheelSpinnerFactory( scoreFragmentArgs.itemLists.toList() ) )
+            WheelSpinnerFactory( scoreFragmentArgs.itemLists.toList(), context!! ) )
             .get( WheelSpinnerViewModel :: class.java)
 
         binding.lifecycleOwner = this

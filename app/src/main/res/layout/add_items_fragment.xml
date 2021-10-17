@@ -1,118 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    >
+    android:fitsSystemWindows="true">
+
+    <data>
+        <variable
+            name="addItemsViewModel"
+            type="com.mayurdw.wheelspinnerapp.viewmodels.AddItemsViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:padding="8dp"
-        tools:context=".fragments.AddItemsFragment">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/enter_between_2_8_items"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/doneButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialTextView">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item0"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item1"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item3"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item4"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item5"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item6"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/item7"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/four_chars_max"
-                android:inputType="text"
-                android:maxLength="4"
-                android:text="" />
-        </LinearLayout>
+        tools:context=".fragment.AddItemsFragment"
+        android:layout_margin="32dp">
 
         <Button
-            android:id="@+id/doneButton"
+            android:id="@+id/add_item_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/done"
+            android:text="@string/label_add_items"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{ () -> addItemsViewModel.addItem() }"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_item_button"
+            app:itemViewModels="@{ addItemsViewModel.liveItemsList }"
+            />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Main content -->
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/send_items_for_spin"
+                android:onClick="@{ () -> addItemsViewModel.navigateToSpin() }"
+                app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

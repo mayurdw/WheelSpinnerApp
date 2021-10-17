@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/addItemsFragment"
-        android:name="com.mayurdw.wheelspinnerapp.fragments.AddItemsFragment"
-        android:label="Add Items"
+        android:name="com.mayurdw.wheelspinnerapp.fragment.AddItemsFragment"
+        android:label="@string/label_add_items"
         tools:layout="@layout/add_items_fragment" >
         <action
             android:id="@+id/action_addItemsFragment_to_wheelSpinnerFragment"
@@ -16,11 +16,13 @@
     </fragment>
     <fragment
         android:id="@+id/wheelSpinnerFragment"
-        android:name="com.mayurdw.wheelspinnerapp.fragments.WheelSpinnerFragment"
-        android:label="Spin the Wheel"
+        android:name="com.mayurdw.wheelspinnerapp.fragment.WheelSpinnerFragment"
+        android:label="@string/label_spin_the_wheel"
         tools:layout="@layout/wheel_spinner_fragment">
         <argument
-            android:name="args"
-            app:argType="string[]" />
+            app:argType="string[]"
+            app:nullable="false"
+            android:name="itemLists"
+            />
     </fragment>
 </navigation>

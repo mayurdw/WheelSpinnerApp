@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mayurdw.wheelspinnerapp.R
+import com.mayurdw.wheelspinnerapp.adapter.AddItemAdapter
 import com.mayurdw.wheelspinnerapp.databinding.AddItemsFragmentBinding
 import com.mayurdw.wheelspinnerapp.viewmodels.AddItemsViewModel
 
@@ -27,7 +28,7 @@ class AddItemsFragment : Fragment() {
         binding.addItemsViewModel = viewModel
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@AddItemsFragment.context)
-            adapter = viewModel.listAdapter
+            adapter = AddItemAdapter()
         }
 
         viewModel.liveNavigateButtonClicked.observe( viewLifecycleOwner, {
@@ -39,6 +40,16 @@ class AddItemsFragment : Fragment() {
 
                 view?.findNavController()?.navigate( action )
                 viewModel.doneNavigation()
+            }
+        })
+
+        viewModel.liveAddItemClicked.observe( viewLifecycleOwner, {
+            if( it == true ) {
+                // Since we know that the only change could be by adding new data
+                binding.recyclerView.adapter!!.notifyItemChanged(
+                    viewModel.liveItemsList.value!!.size - 1
+                )
+                viewModel.itemAdded()
             }
         })
 

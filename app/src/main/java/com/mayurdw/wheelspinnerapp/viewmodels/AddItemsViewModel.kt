@@ -15,7 +15,9 @@ class AddItemsViewModel : ViewModel() {
     private val navigateButtonClicked = MutableLiveData<Boolean>()
     val liveNavigateButtonClicked: LiveData<Boolean>
         get() = navigateButtonClicked
-    val listAdapter: AddItemAdapter = AddItemAdapter()
+    private val addItemClicked = MutableLiveData<Boolean>()
+    val liveAddItemClicked: LiveData<Boolean>
+        get() = addItemClicked
 
     init {
         itemsList.value = mutableListOf( Item(), Item() )
@@ -30,8 +32,13 @@ class AddItemsViewModel : ViewModel() {
     }
 
     fun addItem() {
+        this.addItemClicked.value = true
         this.itemsList.value!!.add( Item() )
-        this.listAdapter.notifyItemChanged( this.itemsList.value!!.size - 1 )
+//        this.listAdapter.notifyItemChanged( this.itemsList.value!!.size - 1 )
+    }
+
+    fun itemAdded() {
+        this.addItemClicked.value = false
     }
 
     fun getItemList() : Array<String> {
